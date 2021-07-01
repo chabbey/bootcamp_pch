@@ -111,6 +111,13 @@ else:
 
 
 print(grid_blank_human)
+print('------------------------')
+print(grid_human)
+print('------------------------')
+print('------------------------')
 print(grid_blank_bot)
+print('------------------------')
+print(grid_bot)
+
 # %%
 
