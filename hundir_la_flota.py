@@ -1,5 +1,6 @@
 
-# %%
+
+#%%
 import numpy as np 
 
 grid_human          = np.full((10,10),' ') 
@@ -39,7 +40,9 @@ for i in boat_size:
      
 # GRID BOT
 
-for i in boat_size:
+boat_size_bot = [4,3,3,2,2,2,1,1,1,1]
+
+for i in boat_size_bot:
 
     initial_coordenate         = np.random.randint(0,10,size=2)
 
@@ -65,59 +68,150 @@ for i in boat_size:
         grid_bot[initial_coordenate [0],initial_coordenate [1]:initial_coordenate [1]+i] = 'A'
         
     else: 
-        boat_size.append(i)
-     
- # DISPARO HUMANO
-coordenate_1 = int(input('1ª coordenate'))
-
-coordenate_2 = int(input('2ª coordenate'))
-
-shoot_human =  grid_bot[coordenate_1,coordenate_2]
-
-grid_blank_human            = np.full((10,10),' ') 
-
-grid_blank_bot              = np.full((10,10),' ') 
+        boat_size_bot.append(i)
 
 
 
-if shoot_human == 'A':
+human_lifes = 20
+bot_lifes = 20
 
-	grid_bot[coordenate_1,coordenate_2] = 'X'
-	grid_blank_human[coordenate_1,coordenate_2] = 'X'
-	print('Hit')
+grid_blank_human = np.full((10, 10), ' ')
 
-else:
+grid_blank_bot = np.full((10, 10), ' ')
 
-	grid_bot[coordenate_1,coordenate_2] = '-'
-	grid_blank_human[coordenate_1,coordenate_2] = '-'
-	print('Water')
+# DISPARO HUMANO
 
- # DISPARO BOT
-bot_coordenates      = np.random.randint(0,9,size=2)
+while (human_lifes != 0) or (bot_lifes != 0):
 
-shoot_bot =  grid_human[bot_coordenates[0],bot_coordenates[1]]
+    coordenate_1 = int(input('1ª coordenate'))
 
-if shoot_bot  == 'A':
+    coordenate_2 = int(input('2ª coordenate'))
 
-	grid_human[bot_coordenates[0],bot_coordenates[1]] = 'X'
-	grid_blank_bot[bot_coordenates[0],bot_coordenates[1]] = 'X'
-	print('Hit')
+    shoot_human = grid_bot[coordenate_1, coordenate_2]
 
-else:
+   
+    if shoot_human == 'A':
+        grid_bot[coordenate_1, coordenate_2] = 'X'
+        grid_blank_human[coordenate_1, coordenate_2] = 'X'
+        bot_lifes -= 1
+            
+        print('Hit')
+        print("HUMAN´S GRIDS")
+        print('------------------------')
+        print("Human´s shoots")
+        print(grid_blank_human)
+        print('------------------------')
+        print("Human´s boats")
+        print(grid_human)
+        print('------------------------')
+        print("BOT´S GRIDS")
+        print('------------------------')
+        print("Bot´s shoots")
+        print(grid_blank_bot)
+        print('------------------------')
+        print("Bot´s boats")
+        print(grid_bot)
+    
 
-	grid_human[bot_coordenates[0],bot_coordenates[1]] = '-'
-	grid_blank_bot[bot_coordenates[0],bot_coordenates[1]] = '-'
-	print('Water')
 
+    else:
+        grid_bot[coordenate_1, coordenate_2] = '-'
+        grid_blank_human[coordenate_1, coordenate_2] = '-'
+        print('Water')
+        print("HUMAN´S GRIDS")
+        print('------------------------')
+        print("Human´s shoots")
+        print(grid_blank_human)
+        print('------------------------')
+        print("Human´s boats")
+        print(grid_human)
+        print('------------------------')
+        print("BOT´S GRIDS")
+        print('------------------------')
+        print("Bot´s shoots")
+        print(grid_blank_bot)
+        print('------------------------')
+        print("Bot´s boats")
+        print(grid_bot)
 
+    print(bot_lifes)
+
+# DISPARO BOT
+
+    bot_coordenates = np.random.randint(0, 9, size=2)
+    shoot_bot = grid_human[bot_coordenates[0], bot_coordenates[1]]
+    if shoot_bot == 'A':
+        grid_human[bot_coordenates[0], bot_coordenates[1]] = 'X'
+        grid_blank_bot[bot_coordenates[0], bot_coordenates[1]] = 'X'
+        human_lifes -= 1
+        print('Hit')
+        print("HUMAN´S GRIDS")
+        print('------------------------')
+        print("Human´s shoots")
+        print(grid_blank_human)
+        print('------------------------')
+        print("Human´s boats")
+        print(grid_human)
+        print('------------------------')
+        print("BOT´S GRIDS")
+        print('------------------------')
+        print("Bot´s shoots")
+        print(grid_blank_bot)
+        print('------------------------')
+        print("Bot´s boats")
+        print(grid_bot)
+    
+    elif bot_lifes == 0:
+
+            print("You win")
+
+""" print("HUMAN´S GRIDS")
+print('------------------------')
+print("Human´s shoots")
 print(grid_blank_human)
 print('------------------------')
+print("Human´s boats")
 print(grid_human)
 print('------------------------')
+print("BOT´S GRIDS")
 print('------------------------')
+print("Bot´s shoots")
 print(grid_blank_bot)
 print('------------------------')
-print(grid_bot)
+print("Bot´s boats")
+print(grid_bot) """
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+3# %%
+
+3
+444# %%
+
+4
 # %%
-
+3
+876
