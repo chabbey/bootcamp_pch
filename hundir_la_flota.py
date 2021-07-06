@@ -1,91 +1,104 @@
 # %%
 import numpy as np
 
-grid_human = np.full((10, 10), ' ')
-grid_bot = np.full((10, 10), ' ')
-boat_size = [4, 3, 3, 2, 2, 2, 1, 1, 1, 1]
-N, S, E, W = [1, 2, 3, 4]
-
 # GRID HUMANO
+def grid():
 
-for i in boat_size:
+    grid_blank_human = np.full((10, 10), ' ')
 
-    initial_coordenate = np.random.randint(0, 10, size=2)
+    grid_blank_bot = np.full((10, 10), ' ')
 
-    orient = np.random.randint(1, 4, size=1)
+    grid_human = np.full((10, 10), ' ')
 
-    if orient == N and (
-            grid_human[initial_coordenate[0] - i:initial_coordenate[0], initial_coordenate[1]] == ' ').all() and \
-            initial_coordenate[0] - i >= 0:
+    grid_bot = np.full((10, 10), ' ')
 
-        grid_human[initial_coordenate[0] - i:initial_coordenate[0], initial_coordenate[1]] = 'A'
+    boat_size = [4, 3, 3, 2, 2, 2, 1, 1, 1, 1]
 
+    N, S, E, W = [1, 2, 3, 4]
 
-    elif orient == S and (
-            grid_human[initial_coordenate[0]:initial_coordenate[0] + i, initial_coordenate[1]] == ' ').all() and \
-            initial_coordenate[0] + i < 10:
+    for i in boat_size:
 
-        grid_human[initial_coordenate[0]:initial_coordenate[0] + i, initial_coordenate[1]] = 'A'
+        initial_coordenate = np.random.randint(0, 10, size=2)
 
+        orient = np.random.randint(1, 4, size=1)
 
-    elif orient == W and (
-            grid_human[initial_coordenate[0], initial_coordenate[1] - i:initial_coordenate[1]] == ' ').all() and \
-            initial_coordenate[1] - i >= 0:
+        if orient == N and (
+                grid_human[initial_coordenate[0] - i:initial_coordenate[0], initial_coordenate[1]] == ' ').all() and \
+                initial_coordenate[0] - i >= 0:
 
-        grid_human[initial_coordenate[0], initial_coordenate[1] - i:initial_coordenate[1]] = 'A'
+            grid_human[initial_coordenate[0] - i:initial_coordenate[0], initial_coordenate[1]] = 'A'
 
 
-    elif orient == E and (
-            grid_human[initial_coordenate[0], initial_coordenate[1]:initial_coordenate[1] + i] == ' ').all() and \
-            initial_coordenate[1] + i < 10:
+        elif orient == S and (
+                grid_human[initial_coordenate[0]:initial_coordenate[0] + i, initial_coordenate[1]] == ' ').all() and \
+                initial_coordenate[0] + i < 10:
 
-        grid_human[initial_coordenate[0], initial_coordenate[1]:initial_coordenate[1] + i] = 'A'
+            grid_human[initial_coordenate[0]:initial_coordenate[0] + i, initial_coordenate[1]] = 'A'
 
-    else:
-        boat_size.append(i)
+
+        elif orient == W and (
+                grid_human[initial_coordenate[0], initial_coordenate[1] - i:initial_coordenate[1]] == ' ').all() and \
+                initial_coordenate[1] - i >= 0:
+
+            grid_human[initial_coordenate[0], initial_coordenate[1] - i:initial_coordenate[1]] = 'A'
+
+
+        elif orient == E and (
+                grid_human[initial_coordenate[0], initial_coordenate[1]:initial_coordenate[1] + i] == ' ').all() and \
+                initial_coordenate[1] + i < 10:
+
+            grid_human[initial_coordenate[0], initial_coordenate[1]:initial_coordenate[1] + i] = 'A'
+
+        else:
+            boat_size.append(i)
 
 # GRID BOT
 
-boat_size_bot = [4, 3, 3, 2, 2, 2, 1, 1, 1, 1]
+    boat_size_bot = [4, 3, 3, 2, 2, 2, 1, 1, 1, 1]
 
-for i in boat_size_bot:
+    for i in boat_size_bot:
 
-    initial_coordenate = np.random.randint(0, 10, size=2)
+        initial_coordenate = np.random.randint(0, 10, size=2)
 
-    orient = np.random.randint(1, 4, size=1)
+        orient = np.random.randint(1, 4, size=1)
 
-    if orient == N and (
-            grid_bot[initial_coordenate[0] - i:initial_coordenate[0], initial_coordenate[1]] == ' ').all() and \
-            initial_coordenate[0] - i >= 0:
+        if orient == N and (
+                grid_bot[initial_coordenate[0] - i:initial_coordenate[0], initial_coordenate[1]] == ' ').all() and \
+                initial_coordenate[0] - i >= 0:
 
-        grid_bot[initial_coordenate[0] - i:initial_coordenate[0], initial_coordenate[1]] = 'A'
-
-
-    elif orient == S and (
-            grid_bot[initial_coordenate[0]:initial_coordenate[0] + i, initial_coordenate[1]] == ' ').all() and \
-            initial_coordenate[0] + i < 10:
-
-        grid_bot[initial_coordenate[0]:initial_coordenate[0] + i, initial_coordenate[1]] = 'A'
+            grid_bot[initial_coordenate[0] - i:initial_coordenate[0], initial_coordenate[1]] = 'A'
 
 
-    elif orient == W and (
-            grid_bot[initial_coordenate[0], initial_coordenate[1] - i:initial_coordenate[1]] == ' ').all() and \
-            initial_coordenate[1] - i >= 0:
+        elif orient == S and (
+                grid_bot[initial_coordenate[0]:initial_coordenate[0] + i, initial_coordenate[1]] == ' ').all() and \
+                initial_coordenate[0] + i < 10:
 
-        grid_bot[initial_coordenate[0], initial_coordenate[1] - i:initial_coordenate[1]] = 'A'
+            grid_bot[initial_coordenate[0]:initial_coordenate[0] + i, initial_coordenate[1]] = 'A'
 
 
-    elif orient == E and (
-            grid_bot[initial_coordenate[0], initial_coordenate[1]:initial_coordenate[1] + i] == ' ').all() and \
-            initial_coordenate[1] + i < 10:
+        elif orient == W and (
+                grid_bot[initial_coordenate[0], initial_coordenate[1] - i:initial_coordenate[1]] == ' ').all() and \
+                initial_coordenate[1] - i >= 0:
 
-        grid_bot[initial_coordenate[0], initial_coordenate[1]:initial_coordenate[1] + i] = 'A'
+            grid_bot[initial_coordenate[0], initial_coordenate[1] - i:initial_coordenate[1]] = 'A'
 
-    else:
-        boat_size_bot.append(i)
 
-human_lifes = 20
-bot_lifes = 20
+        elif orient == E and (
+                grid_bot[initial_coordenate[0], initial_coordenate[1]:initial_coordenate[1] + i] == ' ').all() and \
+                initial_coordenate[1] + i < 10:
+
+            grid_bot[initial_coordenate[0], initial_coordenate[1]:initial_coordenate[1] + i] = 'A'
+
+        else:
+            boat_size_bot.append(i)
+
+    return grid_human,grid_bot
+
+     
+
+grid_human,grid_bot=grid()
+
+
 
 grid_blank_human = np.full((10, 10), ' ')
 
@@ -95,14 +108,26 @@ print('<-----BARCOS COLOCADOS EN EL TABLERO----->')
 print(grid_human)#Barcos del usuario
 print(' ')
 
-# DISPARO HUMANO
-def shoot_human():
-    bot_lifes = 20
-    grid_blank_human = np.full((10, 10), ' ')
-    while human_lifes != 0:
+            
 
-        coordenate_1 = int(input('Introduce la primera coordenada (las filas, del 0 al 9):  '))
-        coordenate_2 = int(input('Introduce la segunda coordenada (las columnas, del 0 al 9):  '))
+# DISPARO HUMANO
+
+def shoot():
+
+    
+    human_lifes = 2
+    bot_lifes = 2
+
+    while human_lifes != 0 and bot_lifes != 0:
+
+        try:
+            coordenate_1 = int(input('Introduce la primera coordenada (las filas, del 0 al 9):  '))
+            coordenate_2 = int(input('Introduce la segunda coordenada (las columnas, del 0 al 9):  '))
+
+        except ValueError:
+
+            pass
+
         print(' ')
         shoot_human = grid_bot[coordenate_1, coordenate_2]
 
@@ -116,30 +141,23 @@ def shoot_human():
             print(grid_blank_human)
             continue
 
+        elif shoot_human != 'A':
 
-
-        else:
             grid_bot[coordenate_1, coordenate_2] = '-'
             grid_blank_human[coordenate_1, coordenate_2] = '-'
 
             print('Agua! Has fallado')
             print('<---------------TUS DISPAROS--------------->')
             print(grid_blank_human)
-            shoot_bot()
-
-        print("Aciertos para ganar: ", bot_lifes)
-
-        print(' ')
-        break
-
-
-
+            print("Aciertos para ganar: ", bot_lifes)
+            print(' ')
+        
+    
+        
+        
+    
 # DISPARO BOT
-def shoot_bot():
-
-    human_lifes = 20
-
-    while bot_lifes != 0:
+    
         bot_coordenates = np.random.randint(0, 9, size=2)
 
         shoot_bot = grid_human[bot_coordenates[0], bot_coordenates[1]]
@@ -153,15 +171,26 @@ def shoot_bot():
             print(grid_human)
             continue
 
-        else:
+        elif shoot_bot != 'A':
+
             grid_human[bot_coordenates[0], bot_coordenates[1]] = '-'
             grid_blank_bot[bot_coordenates[0], bot_coordenates[1]] = '-'
             print('Agua! El bot ha fallado')
             print('<---------------TUS BARCOS----------------->')
             print(grid_human)
+            print("Aciertos del bot para perder: ", human_lifes)
 
+        
+    if bot_lifes <= 0:
+            print("Has ganado, felicidades")
+    
+    elif human_lifes <= 0:
+        print("El bot te ha ganado, lo siento")
+    
 
-        print("Aciertos del bot para perder: ", human_lifes)
+       
+
+        
 
         """print(' ')
         print('<---------------TUS DISPAROS--------------->')
@@ -169,21 +198,27 @@ def shoot_bot():
         print('                                        ')
         print('<---------------TUS BARCOS----------------->')
         print(grid_human)"""
-        break
-
-while shoot_human() != 0 or shoot_bot() != 0:
-    continue
+     
 
 
+    # if human_lifes <= 0:
+    #     print("El bot te ha ganado, lo siento")
 
-def end_game():
-    human_lifes = 20
-    bot_lifes = 20
+    # elif bot_lifes <= 0:
+    #     print("Has ganado, felicidades")
 
-    if human_lifes == 0:
-        print("El bot te ha ganado, lo siento")
+    
+shoot()
 
-    elif bot_lifes == 0:
-        print("Has ganado, felicidades")
 
-end_game()
+
+
+
+
+
+
+
+
+
+
+# %%
