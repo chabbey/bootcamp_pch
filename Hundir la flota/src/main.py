@@ -1,8 +1,8 @@
-import numpy as np
-import funcion_tablero as grid
-import funcion_tablero_vacio as grid_blank
-import funcion_tiro_manual as shoot_manual
-import funcion_tiro_aleatorio as shoot_random
+
+from funcion_tablero import grid
+from funcion_tablero_vacio import grid_blank
+from funcion_tiro_manual import shoot_manual
+from funcion_tiro_aleatorio import shoot_random
 
 
 
