@@ -1,3 +1,5 @@
+import numpy as np
+
 def grid(x, y):
     grid = np.full((x, y), ' ')
 

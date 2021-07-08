@@ -1,3 +1,5 @@
+import numpy as np
+
 def shoot_manual(grid_bot, grid_blank_human, bot_lifes):
     coordenate_1 = int(input('Introduce la primera coordenada (las filas, del 0 al 9):  '))
     coordenate_2 = int(input('Introduce la segunda coordenada (las columnas, del 0 al 9):  '))
