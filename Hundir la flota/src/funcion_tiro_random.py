@@ -1,3 +1,5 @@
+import numpy as np
+
 def shoot_random(grid_human, human_lifes):
     bot_coordenates = np.random.randint(0, 9, size=2)
 
